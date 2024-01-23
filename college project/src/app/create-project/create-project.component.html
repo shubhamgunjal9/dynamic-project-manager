@@ -1,0 +1,108 @@
+<app-navbar [page]="'Create Project'"></app-navbar>
+<main class="container-fluid p-0">
+    <div class="row p-4">
+        <div class="col-md-12 shadow p-4 create-project-main">
+            <form [formGroup]="projectForm" (ngSubmit)="projectregister()">
+                <div class="row">
+                    <div class="col-md-7">
+                        <input [class.validate]="validateField.theme" (click)="removeinputalert()" formControlName="proname" type="text" class="form-control pname-input" placeholder="Enter Project Theme">
+                        <span [class.validate]="validateField.theme" class="req">Project Theme required</span>
+                    </div>
+                    <div class="col-md-5 d-md-block d-none text-right p-3">
+                        <button class="btn save-button">Save Project</button>
+                    </div>
+                </div>
+                <div class="row mt-md-4">
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-4 mt-4">
+                                <label>Reason</label>
+                                <select type="text" formControlName="projectReason" class="form-control select-field">
+                                    <option value="Business">For Business</option>
+                                    <option value="Personal">For Personal</option>
+                                    <option value="Dealership">For Dealership</option>
+                                    <option value="Transport">For Transport</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label>Type</label>
+                                <select type="text" formControlName="projectType" class="form-control select-field">
+                                    <option value="Internal">Internal</option>
+                                    <option value="External">External</option>
+                                    <option value="Vendor">Vendor</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label>Division</label>
+                                <select type="text" formControlName="projectDivision" class="form-control select-field">
+                                    <option value="Filters">Filters</option>
+                                    <option value="Compressor">Compressor</option>
+                                    <option value="Pumps">Pumps</option>
+                                    <option value="Glass">Glass</option>
+                                    <option value="Water Heater">Water Heater</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4 mt-4">
+                                <label>Category</label>
+                                <select type="text" formControlName="projectCategory" class="form-control select-field">
+                                    <option value="Quality A">Quality A</option>
+                                    <option value="Quality B">Quality B</option>
+                                    <option value="Quality C">Quality C</option>
+                                    <option value="Quality D">Quality D</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label>Priority</label>
+                                <select type="text" formControlName="projectPriority" class="form-control select-field">
+                                    <option value="High">High</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Low">Low</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label>Department</label>
+                                <select type="text" formControlName="projectDept" class="form-control select-field">
+                                    <option value="Strategy">Strategy</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Quality">Quality</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                    <option value="Stores">Stores</option>
+                                    <option value="HR">HR</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4 mt-4">
+                                <label>Start Date as per Project Plan</label>
+                                <input (click)="removeinputalert()" [class.validate]="validateField.sdate" formControlName="prostartdate" type="date" class="form-control select-field">
+                                <span [class.validate]="validateField.sdate" class="req">Date required</span>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label>End Date as per Project Plan</label>
+                                <input (click)="removeinputalert()" [class.validate]="validateField.edate" formControlName="proenddate" type="date" class="form-control select-field">
+                                <span [class.validate]="validateField.edate" class="req">{{ dateValidAlert }}</span>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label>Location</label>
+                                <select type="text" formControlName="projectLocation" class="form-control select-field">
+                                    <option value="Pune">Pune</option>
+                                    <option value="Kolkatta">Kolkatta</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Nashik">Nashik</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Dhule">Dhule</option>
+                                </select>
+                                <label class="mt-4">Status: <span class="font-weight-bold text-dark">Registered</span></label>
+
+                            </div>
+
+                            <div class="col-12 d-md-none d-block p-3">
+                                <button class="btn save-button">Save Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,21 @@
+<header class="col-md-12 p-0">
+    <nav class="side-navbar shadow">
+        <div routerLink="/dashboard" routerLinkActive="rectangle2" class="rectangle"></div>
+        <div routerLink="/dashboard" routerLinkActive="dashboard-logo2" class="dashboard-logo"></div>
+       
+        <div routerLink="/project_list" routerLinkActive="rectangle2" class="rectangle rectangle4"></div>
+        <div routerLink="/project_list" routerLinkActive="plist-logo2" class="plist-logo"></div>
+
+        <div class="h-line"></div>
+
+        <div routerLink="/create_project" routerLinkActive="rectangle2" class="rectangle rectangle3"></div>
+        <div routerLink="/create_project" routerLinkActive="cp-logo2" class="cp-logo"></div>
+        
+        <div (click)="logout()" class="logout-logo"></div>
+    </nav>
+    <nav class="top-navbar">
+        <p class="heading"> <img src="/assets/back arrow.svg" width="8px" alt="">&nbsp;&nbsp; {{ page }}</p>
+        <img class="logo" src="/assets/Logo.svg">
+        <div (click)="logout()" class="toplogout-logo"></div>
+    </nav>
+</header>

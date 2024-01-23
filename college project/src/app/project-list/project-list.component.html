@@ -1,0 +1,109 @@
+<app-navbar [page]="'create_project'"></app-navbar>
+<div class="container-fluid pr-md-0">
+    <div class="row p-4">
+        <div class="col-md-12 shadow p-4 project-listing-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <input type="search" (keyup)="searchProjectList($event)" class="serch-input" placeholder="Search"> -->
+                    <input type="search" (input)="searchProjects($event)" class="serch-input" placeholder="Search">
+                    <div class="text-right">
+                        Sort by :
+                        <select (click)="orderProjectList($event)" class="sort-box">
+                          <option value="priority">Priority</option>
+                          <option value="category">Category</option>
+                          <option value="reason">Reason</option>
+                          <option value="division">Division</option>
+                          <option value="department">Department</option>
+                          <option value="location">Location</option>
+                        </select>
+                      </div>
+                      
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-striped mt-3">
+                        <tr class="font-weight-bold heading-tr">
+                            <td>Project Name</td>
+                            <td>Reason</td>
+                            <td>Division</td>
+                            <td>Category</td>
+                            <td>Priority</td>
+                            <td>Department</td>
+                            <td>Location</td>
+                            <td>Status</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <ng-container *ngFor="let row of projectData | paginate:{itemsPerPage:itemPerPage,currentPage:currentPage}; let i=index">
+                          
+                            <tr>
+                                <td style="white-space: nowrap;">
+                                    <h6>{{ row.proname }}</h6>
+                                    <p class="mb-0">{{ row.prostartdate
+                                        | date:'MMM-d-Y'}} to {{
+                                        row.proenddate | date:'MMM-d-Y'}}
+                                    </p>
+                                </td>
+                                <td>{{ row.projectReason.prname}}</td>
+                                <td>{{ row.projectDivision.pdivname }}</td>
+                                <td>{{ row.projectCategory.pcname}}</td>
+                                <td>{{ row.projectPriority.ppname }}</td>
+                                <td>{{ row.projectDept.pdname }}</td>
+                                <td>{{ row.projectLocation.plname}}</td>
+                                <td><h6>{{ row.projectStatus.psname}}</h6></td>
+                                <td><button (click)="changestatus(row.projectStatus.psid,'Running')"class="btn btn-primary start-btn">Start</button></td>
+                                <td><button (click)="changestatus(row.projectStatus.psid,'Closed')" class="btn btn-outline-primary status-btn">Close</button></td>
+                                <td><button (click)="changestatus(row.projectStatus.psid,'Cancelled')" class="btn btn-outline-primary status-btn">Cancel</button></td>
+                            </tr>
+                        </ng-container>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <pagination-controls (pageChange)="currentPage=$event"></pagination-controls>
+            </div>
+        </div>
+        <div class="col-12 mobile-view">
+            <div class="serch-bar">
+                <input type="search" class="serch-input" placeholder="Search">
+                <div class="text-right">
+                    Sort by : <select class="sort-box">
+                        <option value="project_priority">Priority</option>
+                        <option value="project_category">Category</option>
+                        <option value="project_reason">Reason</option>
+                        <option value="project_division">Division</option>
+                        <option value="project_department">Department</option>
+                        <option value="project_location">Location</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngFor="let row of projectData | paginate:{itemsPerPage:itemPerPage,currentPage:currentPage};let i=index">
+            <div class="shadow p-4 mt-3 project-list-sm">
+                <span>
+                    <span class="mb-0 font-weight-bold">{{ row.project_theme }}</span><span
+                        class="float-right font-weight-bold">{{ row.project_status }}</span>
+                    <p>{{ row.project_start_date | date:'MMM-d-Y'}} to {{ row.project_end_date | date:'MMM-d-Y'}}</p>
+                </span>
+                <p class="mt-1 m-0"><span>Reason: </span>
+                    {{ row.project_reason }}</p>
+                <p class="mt-1 m-0"><span>Type: </span>
+                    {{ row.project_type }} &nbsp;&nbsp;
+                    <span> &bull; Category:</span>
+                    {{ row.project_category }}</p>
+                <p class="mt-1 m-0"><span>Div: </span>
+                    {{ row.project_division }} &nbsp;&nbsp;
+                    <span> &bull; Dept.: </span>
+                    {{ row.project_department }}</p>
+                <p class="mt-1 m-0"><span>Location: </span>
+                    {{ row.project_location }}</p>
+                <p class="mt-1"><span>Priority: </span>
+                    {{ row.project_priority }}</p>
+                <p><button (click)="changestatus(row.project_id,'Running')" class="btn start-btn btn-primary ml-2 mr-2">Start</button>
+                    <button (click)="changestatus(row.project_id,'Closed')" class="btn status-btn btn-outline-primary ml-2 mr-2">Close</button>
+                    <button (click)="changestatus(row.project_id,'Cancelled')" class="btn status-btn btn-outline-primary ml-2 mr-2">Cancel</button></p>
+            </div>
+        </ng-container>
+        <div class="col-md-12 mb-5 mt-3 d-md-none d-block text-center">
+            <pagination-controls (pageChange)="currentPage=$event"></pagination-controls>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+.create-project-main {
+    margin-top: -75px;
+    background-color:#ffffff;
+    border-radius: 10px;
+    padding-bottom: 350px !important;
+}
+
+.pname-input {
+    height: 70px;
+    width: 750px;
+    border-color: #979797;
+}
+
+.save-button {
+    border-radius: 40px;
+    background-color: #025AAB;
+    color: #ffffff;
+    padding: 5px 30px 5px 30px;
+}
+
+label {
+    color: #979797;
+    margin-bottom: 3px;
+}
+
+.select-field {
+    border-color: #979797;
+    height: 50PX;
+    width: 355PX;
+}
+
+.req {
+    visibility: hidden;
+}
+
+.validate {
+    border-color: #ff0000;
+    color: #ff0000;
+    font-size: 15px;
+    visibility: visible;
+}
+
+@media (max-width: 768px)  {
+    .create-project-main {
+        margin-top: 60px;
+        padding-bottom: 10px !important;
+        margin-bottom: 60px;
+    }
+
+    .pname_input {
+        width: 100%;
+    }
+
+    .select-field {
+        width: 100%;
+    }
+    
+    .save-button {
+        width: 100%;
+    }
+}

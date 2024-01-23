@@ -1,0 +1,40 @@
+<app-navbar [page]="'Dashboard'"></app-navbar>
+<div class="container-fluid pr-md-0">
+    <div class="row">
+        <div class="col-md-12 dashboard-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="project-count-list">
+                        <div class="shadow project-count">
+                            <p class="mt-2 ml-2 mb-0">Total Project</p>
+                            <h1 class="mt-0 ml-2 p-conut-no">{{ projectCount.TotalProjects }}</h1>
+                        </div>
+                        <div class="shadow project-count">
+                            <p class="mt-2 ml-2 mb-0">Closed</p>
+                            <h1 class="mt-0 ml-2 p-conut-no">{{ projectCount.TotalClosedProject }}</h1>
+                        </div>
+                        <div class="shadow project-count">
+                            <p class="mt-2 ml-2 mb-0">Running</p>
+                            <h1 class="mt-0 ml-2 p-conut-no">{{ projectCount. TotalRunningProject }}</h1>
+                        </div>
+                        <div class="shadow project-count">
+                            <p class="mt-2 ml-2 mb-0">Closuer Delay</p>
+                            <h1 class="mt-0 ml-2 p-conut-no">{{ projectCount.TotalRegisteredProject }}</h1>
+                        </div>
+                        <div class="shadow project-count">
+                            <p class="mt-2 ml-2 mb-0">Cancelled</p>
+                            <h1 class="mt-0 ml-2 p-conut-no">{{ projectCount.TotalCancelledProject }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h5 class="mt-4">Department wise - Total Vs Closed</h5>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="shadow mt-3 mb-4 chart" [chart]="columnChart"></div>
+                  </div>
+                  
+            </div>
+        </div>
+    </div>
+</div>
